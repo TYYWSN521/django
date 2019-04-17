@@ -28,6 +28,7 @@ from django.template import loader
 #     #     return HttpResponse('id错误')
 #     book = BookInfo.objects.get(pk=id)
 #     return render(request, 'booktest/detail.html', {'book':book})
+# ============
 def index(request):
     return render(request,'booktest/list.html',{'username': "田元元"})
 
