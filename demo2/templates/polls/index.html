@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% for q in question%}
+        <li> <a href="{% url 'polls:detail' question.id%}">{{forloop.counter}}.{{q.question_text}}</a> </li>
+    {% empty %}
+        <h4>无信息</h4>
+    {% endfor%}
+</body>
+</html>

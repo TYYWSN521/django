@@ -45,7 +45,7 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+    # def increseview(self):
+    #     self.views += 1
+    #     self.save()
 
-#
-# class Comment(models.Model):
-#     name = models.

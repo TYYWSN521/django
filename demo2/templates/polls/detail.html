@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>投票页</title>
+</head>
+<body>
+    <div>
+        <h2>投票信息：{{q.question_text}}</h2>
+        <ul>
+            <h3>投票选项</h3>
+            <form action="{% ’polls:vote%}" method="post">
+                {% for c in question.choice_set.all %}
+                  {% if forloop.counter ==1 %}
+                    <li><input type="radio" name = 'votenum' value="'{{choice.id}}" {{choice.choice_text}} ></li>
+                    {<li><input type="radio" name = 'votenum' value="'{{choice.id}}" checked {{choice.choice_text}} ></li>}
+                {% empty %}
+                    <li>没有此选项</li>
+                {% endfor %}
+                <input type = "submit" value="'投票篇">
+            </form>
+        </ul>
+    </div>
+</body>
+</html>

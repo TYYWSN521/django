@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>地区</title>
+</head>
+<body>
+    <select name="" id="">
+        <option value="">当前地区：{{area.title}}</option>
+        <option value="">安阳</option>
+        <option value="">保定</option>
+    </select>
+    <br>
+    上级行政区：{{area.parentarea.title}}
+    <br>
+    下属区域：
+        <ul>
+            {% for a in area.area_set.all%}
+                <li>{{a.title}}</li>
+            {% empty%}
+                <li>不存在</li>
+            {% endfor %}
+        </ul>
+</body>
+</html>

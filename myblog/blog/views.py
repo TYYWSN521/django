@@ -1,7 +1,6 @@
 from django.shortcuts import render,get_list_or_404,get_object_or_404
-from django.http import HttpResponse
 from .models import Category,Tag,Post
-
+from comment.forms import CommentForm
 # Create your views here.
 
 
@@ -13,14 +12,15 @@ def index(request):
     return render(request, 'blog/index.html', context)
 
 
-def detail(request,id):
+def detail(request, id):
     post = get_object_or_404(Post,pk=id)
     post.views += 1
     post.save()
     context = {
-        'post':post
+        'post': post,
+        'form': CommentForm(),
     }
-    return render(request,'blog/single.html',context)
+    return render(request,'blog/single.html', context)
 
 
 def achives(request,y,m):

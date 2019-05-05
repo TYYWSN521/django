@@ -31,3 +31,11 @@ class HeroInfo(models.Model):
     def sex(self):
         return self.hgender
     sex.short_desciption = "性别"
+
+
+class Area(models.Model):
+    title = models.CharField(max_length=30)
+    parentarea = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True)
+
+    def __str__(self):
+        return self.title
